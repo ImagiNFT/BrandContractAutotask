@@ -4,8 +4,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "ethers": "node src/ethers.js",
-    "test": "buidler test"
+    "setSeed": "node src/setSeed.js"
   },
   "devDependencies": {
     "@nomiclabs/buidler": "^1.4.7",
