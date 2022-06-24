@@ -1,22 +1,10 @@
-# Defender Autotask examples with Relayer
+# Defender Autotask example for Typescript
 
-This folder shows how to code an Autotask connected to a Defender Relayer. Examples show using the [`defender-relay-client`](https://www.npmjs.com/package/defender-relay-client) standalone and along with `ethers.js`. All examples can be run as an Autotask or locally. The `ethers` example also has a small suite of unit tests.
+This folder shows how to code an Autotask using Typescript, and then using `tsc` to compile it to javascript in order to be run as an Autotask within Defender.
 
 ## Setup
 
-Each Autotask script in the `src` folder is self-contained, and exposes different entrypoints depending on whether the code is to be run locally, within an autotask, or unit tested:
-
-- The `require.main` check ensures the code is only run if the script is executed directly, which is used for local development.
-- The `handler` function is called by the Defender Autotask runtime, and initializes the client using the injected `credentials`.
-- The `main` function contains the business logic, and is called directly by the `handler` and the unit tests, with different clients depending on the environment.
-
-To run any of these scripts as an Autotask, just copy their code into a new Autotask, and connect it to a Relayer.
-
-## Testing
-
-This project uses `buidler` for testing. Note that buidler is not required for Autotasks, it is just used for testing purposes here. The tests run in a development network managed by buidler, set up the environment, and call the `main` function for testing.
-
-Run the tests via `yarn test`.
+The `tsconfig.json` sets the configuration for the typescript compiler to emit the javascript code to be used in the Defender Autotask. Run `yarn build` (or simply `tsc`) to compile the script in [`src/index.ts`](src/index.ts), copy the generated code from `dist/index.js`, and paste it into an Autotask.
 
 ## Running Locally
 
@@ -27,4 +15,4 @@ API_KEY=yourapikey
 API_SECRET=yourapisecret
 ```
 
-Then run `yarn client` or `yarn ethers`, depending on the script you want to run, which will run your script locally, connecting to your Relay via API.
+Then run `yarn start`, which will run the typescript code using `ts-node`, and connecting to your Defender Relayer via the HTTP API.

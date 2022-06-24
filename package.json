@@ -1,16 +1,23 @@
 {
-  "name": "defender-relay-demo",
+  "name": "defender-typescript-demo",
   "version": "1.0.0",
-  "main": "src/index.js",
-  "license": "MIT",
+  "description": "",
+  "main": "dist/index.js",
   "scripts": {
-    "setSeed": "node src/setSeed.js"
+    "build": "tsc",
+    "start": "ts-node src/index.ts"
   },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
   "devDependencies": {
-    "dotenv": "^8.2.0"
+    "@types/node": "^14.14.10",
+    "dotenv": "^8.2.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.1.2"
   },
   "dependencies": {
     "defender-relay-client": "1.1.1-rc.0",
-    "ethers": "5.0.3"
+    "ethers": "^5.6.9"
   }
 }
